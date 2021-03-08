@@ -18,6 +18,7 @@ public class MainBug {
         Bug bug5 = new Bug("Icon on the menu is not as designed", "natalia@test.pl", 5);
         bug5.changeStatus();
         bug5.showBugStatus();
+        System.out.println(bug5.getBugPriority());
 
     }
 }
