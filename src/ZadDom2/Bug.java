@@ -35,6 +35,10 @@ public class Bug {
         System.out.println("***** ***");
     }
 
+    int getBugPriority() {
+        return bugPriority;
+    }
+
     void showBugPriority(int p) {
         switch (p) {
             case 1:

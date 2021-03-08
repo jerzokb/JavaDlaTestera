@@ -13,7 +13,7 @@ public class MainBug {
         bug3.showBugStatus();
 
         Bug bug4 = new Bug("The message is not understandable", "ewa@test.pl", 4);
-        bug4.showBugPriority(bug4.bugPriority);
+        bug4.showBugPriority(bug4.getBugPriority());
 
         Bug bug5 = new Bug("Icon on the menu is not as designed", "natalia@test.pl", 5);
         bug5.changeStatus();
