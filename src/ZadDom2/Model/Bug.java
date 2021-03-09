@@ -1,14 +1,14 @@
-package ZadDom2;
+package ZadDom2.Model;
 
 public class Bug {
 
-    // POLA OBIEKTU
-    String bugDesc; // opis błędu
-    String ownerEmail; // adres emial osoby zgłaszającej błąd
-    int bugPriority; // priorytet błędu (1-5)
-    String bugStatus; // Status błędu (otwarty / zamknięty) - domyślnie, podczas tworzenia zawsze otwarty
+    // POLA OBIEKTU - ustawione jako prywatne
+    private String bugDesc; // opis błędu
+    private String ownerEmail; // adres emial osoby zgłaszającej błąd
+    private int bugPriority; // priorytet błędu (1-5)
+    private String bugStatus; // Status błędu (otwarty / zamknięty) - domyślnie, podczas tworzenia zawsze otwarty
 
-    // KONSTRUKTOR
+    // KONSTRUKTOR - publiczny
     public Bug(String bugDesc, String ownerEmail, int bugPriority) {
         this.bugDesc = bugDesc;
         this.ownerEmail = ownerEmail;
@@ -16,7 +16,8 @@ public class Bug {
         this.bugStatus = "Open";
     }
 
-    void showBugInfo() {
+    // METODY - publiczne
+    public void showBugInfo() {
         System.out.println("Bug information:");
         System.out.println("Description: " + bugDesc);
         System.out.println("Bug owner: " + ownerEmail);
@@ -25,21 +26,21 @@ public class Bug {
         System.out.println("***** ***");
     }
 
-    void showBugOwner() {
+    public void showBugOwner() {
         System.out.println("Bug owner: " + ownerEmail);
         System.out.println("***** ***");
     }
 
-    void showBugStatus() {
+    public void showBugStatus() {
         System.out.println("Bug status: " + bugStatus);
         System.out.println("***** ***");
     }
 
-    int getBugPriority() {
+    public int getBugPriority() {
         return bugPriority;
     }
 
-    void showBugPriority(int p) {
+    public void showBugPriority(int p) {
         switch (p) {
             case 1:
                 System.out.println("Priority " + p + "-HIGHEST");
@@ -64,7 +65,7 @@ public class Bug {
         }
     }
 
-    void changeStatus() {
+    public void changeStatus() {
         if (this.bugStatus == "Open") {
             this.bugStatus = "Close";
         } else if (this.bugStatus == "Close") {
@@ -75,4 +76,47 @@ public class Bug {
         }
     }
 
+    public String getBugDesc() {
+        return bugDesc;
+    }
+
+    public void setBugDesc(String bugDesc) {
+        if (bugDesc.length() < 10) {
+            System.out.println("Description MUST be longer than 10 characters!");
+        } else {
+            this.bugDesc = bugDesc;
+        }
+    }
+
+    public String getOwnerEmail() {
+        return ownerEmail;
+    }
+
+    public void setOwnerEmail(String ownerEmail) {
+        if (!ownerEmail.contains("@")) {
+            System.out.println("Email adrress MUST contain @ sign!");
+        } else {
+            this.ownerEmail = ownerEmail;
+        }
+    }
+
+    public void setBugPriority(int bugPriority) {
+        if (bugPriority != 1 && bugPriority != 2 && bugPriority != 3 && bugPriority != 4 && bugPriority != 5) {
+            System.out.println("Bug priority is not correct! MUST be 1 or 2 or 3 or 4 or 5.");
+        } else {
+            this.bugPriority = bugPriority;
+        }
+    }
+
+    public String getBugStatus() {
+        return bugStatus;
+    }
+
+    public void setBugStatus(String bugStatus) {
+        if (bugStatus != "Open" && bugStatus != "Close") {
+            System.out.println("Status not recognized!");
+        } else {
+            this.bugStatus = bugStatus;
+        }
+    }
 }
