@@ -1,4 +1,4 @@
-import java.net.URLStreamHandler;
+import Model.User;
 
 public class MainApp {
 
@@ -89,7 +89,7 @@ public class MainApp {
             default:
                 System.out.println("Nie znam takiej strony");
         }
-        // Nazwy klas: User, SuperUser, AdminUser
+        // Nazwy klas: Model.User, SuperUser, AdminUser
         // Nazwy zmiennych: user, superUser, adminUser, isTrue
         // CTRL + ALT + L - formatowanie kodu
 
@@ -110,17 +110,11 @@ public class MainApp {
         System.out.println(beata.getUserAge());
         boolean userAdult = beata.isUserAdult();
         System.out.println("Czy Beata jest dorosła? " + userAdult);
-        System.out.println("Za 10 lat bedziesz mial " + beata.yourAgePlusTen(beata.age) + " lat.");
-        beata.greetings(beata.firstName, beata.lastName);
 
         User bartek = new User("Bartek", "Testowy", "bartek@test.pl", 17);
         bartek.getFullName();
         bartek.getAllInfo();
         int userAge = bartek.getUserAge();
         System.out.println(userAge);
-        bartek.greetings(bartek.firstName);
-        bartek.howOldAreYou(bartek.firstName, bartek.age);
-        int agePlusTen = bartek.yourAgePlusTen(bartek.age);
-        System.out.println("Za 10 lat bedziesz mial " + agePlusTen + " lat.");
     }
 }
