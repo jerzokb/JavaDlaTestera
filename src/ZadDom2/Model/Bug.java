@@ -101,7 +101,7 @@ public class Bug {
     }
 
     public void setBugPriority(int bugPriority) {
-        if (bugPriority != 1 && bugPriority != 2 && bugPriority != 3 && bugPriority != 4 && bugPriority != 5) {
+        if ((1 > bugPriority) || (bugPriority > 5)) {
             System.out.println("Bug priority is not correct! MUST be 1 or 2 or 3 or 4 or 5.");
         } else {
             this.bugPriority = bugPriority;
