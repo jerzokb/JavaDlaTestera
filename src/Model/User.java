@@ -5,6 +5,8 @@ public class User {
     // 1. Pola obiketu to definicja obiektu
     // Typ nazwa = nowy obiekt
 
+    private static int userCounter = 0; // pola statyczne należą do klasy a nie do obiektu
+
     private String firstName;
     private String lastName;
     private String emial;
@@ -27,6 +29,7 @@ public class User {
         this.emial = emial;
         this.age = age;
         this.isAdult = isUserAdult();
+        userCounter++;
     }
 
     // SETTER
@@ -63,6 +66,12 @@ public class User {
             return true;
         }
     }
+
+    // Metoda statyczna należy do klasy
+    public static int getUserCounter() {
+        return userCounter;
+    }
+
     public void greetings(String name) {
         System.out.println("Hi " + name + ". Nice to see you!");
     }
