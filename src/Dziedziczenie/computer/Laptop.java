@@ -41,6 +41,34 @@ public class Laptop extends Computer{
         if (volumeLevel <= 0) {
             return 0;
         } else {return volumeLevel;}
+    }
 
+    @Override
+    public int volumeUp(int volume) {
+        if (volume >= 0) {
+            volumeLevel += volume;
+            if (volumeLevel >= 100) {
+                volumeLevel = 100;
+                return volumeLevel;
+            } else {return volumeLevel;}
+        } else {
+            System.out.println("Volume MUST be POSITIVE");
+            return volumeLevel;
+        }
+
+    }
+
+    @Override
+    public int volumeDown(int volume) {
+        if (volume >= 0) {
+            volumeLevel -= volume;
+            if (volumeLevel <= 0) {
+                volumeLevel = 0;
+                return volumeLevel;
+            } else {return volumeLevel;}
+        } else {
+            System.out.println("Volume MUST be POSITIVE");
+            return volumeLevel;
+        }
     }
 }
