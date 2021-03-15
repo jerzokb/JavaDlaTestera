@@ -5,7 +5,7 @@ public class PC extends Computer{
     // Klasa PC jest komputerem
     // PC ma dostęp do wszystkich publicznych pól i metod klasy matki
 
-    public PC(String name, String type, int hdd, int ram) {
+    public PC(String name, String type, Hdd hdd, Ram ram) {
         super(name, type, hdd, ram); // wywołanie konstruktora w klasie matce
     }
 

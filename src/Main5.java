@@ -23,6 +23,7 @@ public class Main5 {
         User u2 = new User("Beata2", "Testowa2", "beata2@test.pl", 42);
         User u3 = new User("Beata3", "Testowa3", "beata3@test.pl", 43);
         User u4 = new User("Beata4", "Testowa4", "beata4@test.pl", 44);
+        User u5 = new User("Beata4", "Testowa4", "beata4@test.pl", 44);
         // System.out.println(User.userCounter); // do pola statycznego dostajemy się za pomocą klasy a nie obiektu
         System.out.println(User.getUserCounter());
 
@@ -35,6 +36,9 @@ public class Main5 {
         System.out.println(bartek);
 
         System.out.println(WeekUtils.MONDAY);
+
+        System.out.println(u4);
+        System.out.println(u4.equals(u5));
 
     }
 }

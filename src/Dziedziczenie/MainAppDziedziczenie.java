@@ -1,8 +1,6 @@
 package Dziedziczenie;
 
-import Dziedziczenie.computer.Computer;
-import Dziedziczenie.computer.Laptop;
-import Dziedziczenie.computer.PC;
+import Dziedziczenie.computer.*;
 
 public class MainAppDziedziczenie {
 
@@ -14,8 +12,11 @@ public class MainAppDziedziczenie {
 
         // referencja do obiektu = obiekt w pamięci
 
-        PC officeComputer = new PC("Office computer", "HP", 500, 128);
-        Laptop gamingLaptop = new Laptop("XGames", "HP GAMES", 500, 256, 80);
+        Hdd hdd = new Hdd("Samsung", 500);
+        Ram ram = new Ram("AAA", 128);
+
+        PC officeComputer = new PC("Office computer", "HP", hdd, ram);
+        Laptop gamingLaptop = new Laptop("XGames", "HP GAMES", hdd, ram, 80);
 
         officeComputer.switchOn();
         System.out.println(officeComputer.getState());
@@ -38,11 +39,11 @@ public class MainAppDziedziczenie {
         // Mamy dostęp do metod klasy matki i nadpisanych metod przez klasy - dzieci
         // odczytujemy najpierw metody w klasie-dziecko, potem w klasie matce
 
-        Computer officeComputer1 = new PC("Office computer 1", "HP", 500, 128);
-        Computer officeComputer2 = new PC("Office computer 2", "HP", 500, 128);
-        Computer officeComputer3 = new PC("Office computer 3", "HP", 500, 128);
-        Computer gamingLaptop1 = new Laptop("XGames 1", "HP GAMES", 500, 256, 80);
-        Computer mackbook = new Laptop("MB PRO", "PRO", 500, 256, 100);
+        Computer officeComputer1 = new PC("Office computer 1", "HP", hdd, ram);
+        Computer officeComputer2 = new PC("Office computer 2", "HP", hdd, ram);
+        Computer officeComputer3 = new PC("Office computer 3", "HP", hdd, ram);
+        Computer gamingLaptop1 = new Laptop("XGames 1", "HP GAMES", hdd, ram, 80);
+        Computer mackbook = new Laptop("MB PRO", "PRO", hdd, ram, 100);
 
         Computer[] computers = {officeComputer1, officeComputer2, officeComputer3, gamingLaptop1, mackbook};
 

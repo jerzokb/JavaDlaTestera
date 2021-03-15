@@ -1,8 +1,6 @@
 package Dziedziczenie;
 
-import Dziedziczenie.computer.Computer;
-import Dziedziczenie.computer.Laptop;
-import Dziedziczenie.computer.PC;
+import Dziedziczenie.computer.*;
 
 public class MainAbstrakcja {
 
@@ -10,8 +8,11 @@ public class MainAbstrakcja {
 
         // ABSTRAKCJA vs. KONKRETNE ROZWIĄZANIA
 
-        Computer officeComputer = new PC("Office computer", "HP", 500, 128);
-        Computer gamingLaptop = new Laptop("XGames", "HP GAMES", 500, 256, 100);
+        Hdd hdd = new Hdd("Samsung", 500);
+        Ram ram = new Ram("AAA", 128);
+
+        Computer officeComputer = new PC("Office computer", "HP", hdd, ram);
+        Computer gamingLaptop = new Laptop("XGames", "HP GAMES", hdd, ram, 100);
 
         System.out.println(gamingLaptop.volumeUp());
 

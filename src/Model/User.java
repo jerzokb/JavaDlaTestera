@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Objects;
+
 public class User {
 
     // 1. Pola obiketu to definicja obiektu
@@ -118,5 +120,33 @@ public class User {
 
     public void setAdult(boolean adult) {
         isAdult = adult;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", emial='" + emial + '\'' +
+                ", age=" + age +
+                ", isAdult=" + isAdult +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return age == user.age &&
+                isAdult == user.isAdult &&
+                Objects.equals(firstName, user.firstName) &&
+                Objects.equals(lastName, user.lastName) &&
+                Objects.equals(emial, user.emial);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, emial, age, isAdult);
     }
 }
