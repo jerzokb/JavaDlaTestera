@@ -1,17 +1,22 @@
 package ZadDom2.Model;
 
-public class Bug {
+public class Bug implements ConsoleNotification{
+
+    // Zadanie Domowe 7
+    // 1. Dodanie klasy BugReporter + 3 pola + 3 dodatkowe metody + walidacja maila przeniesiona z BUG
+    // 2. Dodanie interface ConsoleNotification -> notifyStatusChange
+    // 3. W klasie Bug dodać metody toString
 
     // POLA OBIEKTU - ustawione jako prywatne
     private String bugDesc; // opis błędu
-    private String ownerEmail; // adres emial osoby zgłaszającej błąd
+    private BugReporter reporter; // adres emial osoby zgłaszającej błąd
     private int bugPriority; // priorytet błędu (1-5)
     private String bugStatus; // Status błędu (otwarty / zamknięty) - domyślnie, podczas tworzenia zawsze otwarty
 
     // KONSTRUKTOR - publiczny
-    public Bug(String bugDesc, String ownerEmail, int bugPriority) {
+    public Bug(String bugDesc, BugReporter reporter, int bugPriority) {
         this.bugDesc = bugDesc;
-        this.ownerEmail = ownerEmail;
+        this.reporter = reporter;
         this.bugPriority = bugPriority;
         this.bugStatus = "Open";
     }
@@ -20,20 +25,13 @@ public class Bug {
     public void showBugInfo() {
         System.out.println("Bug information:");
         System.out.println("Description: " + bugDesc);
-        System.out.println("Bug owner: " + ownerEmail);
+        System.out.println("Bug owner: " + reporter);
         System.out.println("Bug priority: " + bugPriority);
         System.out.println("Bug status: " + bugStatus);
-        System.out.println("***** ***");
-    }
-
-    public void showBugOwner() {
-        System.out.println("Bug owner: " + ownerEmail);
-        System.out.println("***** ***");
     }
 
     public void showBugStatus() {
         System.out.println("Bug status: " + bugStatus);
-        System.out.println("***** ***");
     }
 
     public int getBugPriority() {
@@ -44,23 +42,18 @@ public class Bug {
         switch (p) {
             case 1:
                 System.out.println("Priority " + p + "-HIGHEST");
-                System.out.println("***** ***");
                 break;
             case 2:
                 System.out.println("Priority " + p + "-HIGH");
-                System.out.println("***** ***");
                 break;
             case 3:
                 System.out.println("Priority " + p + "-MEDIUM");
-                System.out.println("***** ***");
                 break;
             case 4:
                 System.out.println("Priority " + p + "-LOW");
-                System.out.println("***** ***");
                 break;
             case 5:
                 System.out.println("Priority " + p + "-LOWEST");
-                System.out.println("***** ***");
                 break;
         }
     }
@@ -72,7 +65,6 @@ public class Bug {
             this.bugStatus = "Open";
         } else {
             System.out.println("Status not recognized!");
-            System.out.println("***** ***");
         }
     }
 
@@ -88,16 +80,12 @@ public class Bug {
         }
     }
 
-    public String getOwnerEmail() {
-        return ownerEmail;
+    public BugReporter getReporter() {
+        return reporter;
     }
 
-    public void setOwnerEmail(String ownerEmail) {
-        if (!ownerEmail.contains("@")) {
-            System.out.println("Email adrress MUST contain @ sign!");
-        } else {
-            this.ownerEmail = ownerEmail;
-        }
+    public void setReporter(BugReporter reporter) {
+        this.reporter = reporter;
     }
 
     public void setBugPriority(int bugPriority) {
@@ -113,10 +101,26 @@ public class Bug {
     }
 
     public void setBugStatus(String bugStatus) {
+            this.bugStatus = bugStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "Bug{" +
+                "bugDesc='" + bugDesc + '\'' +
+                ", reporter=" + reporter +
+                ", bugPriority=" + bugPriority +
+                ", bugStatus='" + bugStatus + '\'' +
+                '}';
+    }
+
+    @Override
+    public void NotifyStatusChange(String bugStatus) {
         if (bugStatus != "Open" && bugStatus != "Close") {
             System.out.println("Status not recognized!");
         } else {
-            this.bugStatus = bugStatus;
+            this.setBugStatus(bugStatus);
+            System.out.println("Status został zmieniony!");
         }
     }
 }
