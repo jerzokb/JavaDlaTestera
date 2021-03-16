@@ -101,7 +101,10 @@ public class Bug implements ConsoleNotification{
     }
 
     public void setBugStatus(String bugStatus) {
+        notifyStatusChange(bugStatus);
+        if (bugStatus == "Open" || bugStatus == "Close") {
             this.bugStatus = bugStatus;
+        }
     }
 
     @Override
@@ -112,15 +115,5 @@ public class Bug implements ConsoleNotification{
                 ", bugPriority=" + bugPriority +
                 ", bugStatus='" + bugStatus + '\'' +
                 '}';
-    }
-
-    @Override
-    public void NotifyStatusChange(String bugStatus) {
-        if (bugStatus != "Open" && bugStatus != "Close") {
-            System.out.println("Status not recognized!");
-        } else {
-            this.setBugStatus(bugStatus);
-            System.out.println("Status został zmieniony!");
-        }
     }
 }

@@ -30,14 +30,14 @@ public class MainBug {
         Bug bug3 = new Bug("The index is not autoincremented", bugReporter3, 3);
         System.out.println(bug3);
         bug3.showBugStatus();
-        bug3.NotifyStatusChange("In Progress");
+        bug3.setBugStatus("In Progress");
         System.out.println(bug3.getBugStatus());
 
         System.out.println("***** ***");
         Bug bug6 = new Bug("The index is not autoincremented", bugReporter6, 3);
         System.out.println(bug6);
         bug6.showBugStatus();
-        bug6.NotifyStatusChange("Close");
+        bug6.setBugStatus("Close");
         System.out.println(bug6.getBugStatus());
 
         System.out.println("***** ***");
@@ -53,6 +53,5 @@ public class MainBug {
         bug5.changeStatus();
         bug5.showBugStatus();
         System.out.println(bug5.getBugPriority());
-
     }
 }
