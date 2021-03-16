@@ -116,4 +116,13 @@ public class Bug implements ConsoleNotification{
                 ", bugStatus='" + bugStatus + '\'' +
                 '}';
     }
+
+    @Override
+    public void notifyStatusChange(String bugStatus) {
+        if (bugStatus != "Open" && bugStatus != "Close") {
+            System.out.println("Status not recognized!");
+        } else {
+            System.out.println("Status został zmieniony!");
+        }
+    }
 }
