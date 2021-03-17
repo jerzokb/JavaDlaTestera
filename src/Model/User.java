@@ -2,7 +2,7 @@ package Model;
 
 import java.util.Objects;
 
-public class User {
+public class User implements Comparable<User>{
 
     // 1. Pola obiketu to definicja obiektu
     // Typ nazwa = nowy obiekt
@@ -148,5 +148,14 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(firstName, lastName, emial, age, isAdult);
+    }
+
+    @Override
+    public int compareTo(User user) {
+        int compareResult = this.getFirstName().compareTo(user.firstName);
+        if (compareResult == 0) {
+            compareResult = this.getLastName().compareTo(user.lastName);
+        }
+        return compareResult;
     }
 }
