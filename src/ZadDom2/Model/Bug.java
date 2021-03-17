@@ -146,7 +146,8 @@ public class Bug implements ConsoleNotification, Comparable<Bug>{
 
     @Override
     public int compareTo(Bug bug) {
-        int compareResult = this.getBugDesc().compareTo(bug.bugDesc);
-        return compareResult;
+        // int compareResult = this.getBugDesc().compareTo(bug.bugDesc); // niepotrzebnie tworzę zmienną
+        // return compareResult;
+        return this.getBugDesc().compareTo(bug.bugDesc);
     }
 }
