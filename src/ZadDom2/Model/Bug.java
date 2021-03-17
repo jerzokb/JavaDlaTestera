@@ -1,6 +1,8 @@
 package ZadDom2.Model;
 
-public class Bug implements ConsoleNotification{
+import java.util.Objects;
+
+public class Bug implements ConsoleNotification, Comparable<Bug>{
 
     // Zadanie Domowe 7
     // 1. Dodanie klasy BugReporter + 3 pola + 3 dodatkowe metody + walidacja maila przeniesiona z BUG
@@ -124,5 +126,27 @@ public class Bug implements ConsoleNotification{
         } else {
             System.out.println("Status został zmieniony!");
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bug bug = (Bug) o;
+        return bugPriority == bug.bugPriority &&
+                Objects.equals(bugDesc, bug.bugDesc) &&
+                Objects.equals(reporter, bug.reporter) &&
+                Objects.equals(bugStatus, bug.bugStatus);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bugDesc, reporter, bugPriority, bugStatus);
+    }
+
+    @Override
+    public int compareTo(Bug bug) {
+        int compareResult = this.getBugDesc().compareTo(bug.bugDesc);
+        return compareResult;
     }
 }
