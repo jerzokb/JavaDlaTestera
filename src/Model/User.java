@@ -1,5 +1,7 @@
 package Model;
 
+import exceptions.IllegalEmailFormatException;
+
 import java.util.Objects;
 
 public class User implements Comparable<User>{
@@ -35,9 +37,11 @@ public class User implements Comparable<User>{
     }
 
     // SETTER
-    public void setEmial(String email) {
+    public void setEmial(String email) throws IllegalEmailFormatException {
         if (email.endsWith("ru")) {
-            System.out.println("RU address emials is not allowed");
+            // System.out.println("RU address emials is not allowed");
+            throw new IllegalEmailFormatException("Incorrect emial country");
+            // throw new IllegalArgumentException("Incorrect emial country");
         } else {
             this.emial = email;
         }

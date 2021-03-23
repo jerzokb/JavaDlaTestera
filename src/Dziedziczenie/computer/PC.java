@@ -26,7 +26,8 @@ public class PC extends Computer{
     }
 
     public int volumeUp() {
-        return volumeLevel += 1;
+        throw new UnsupportedOperationException("This method is unsupported");
+        // return volumeLevel += 1;
     }
 
     @Override
