@@ -16,6 +16,7 @@ public class User implements Comparable<User>{
     private String emial;
     private int age;
     private boolean isAdult;
+    private Enum gender;
 
     // 3. Konstruktor domyślny tworzy pusty obiekt
     // Nazwa konstruktora jest taka sama jak nazwa klasy
@@ -34,6 +35,15 @@ public class User implements Comparable<User>{
         this.age = age;
         this.isAdult = isUserAdult();
         userCounter++;
+    }
+
+    public User(String firstName, String lastName, String emial, int age, boolean isAdult, Enum gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.emial = emial;
+        this.age = age;
+        this.isAdult = isAdult;
+        this.gender = gender;
     }
 
     // SETTER
@@ -126,6 +136,14 @@ public class User implements Comparable<User>{
         isAdult = adult;
     }
 
+    public Enum getGender() {
+        return gender;
+    }
+
+    public void setGender(Enum gender) {
+        this.gender = gender;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -134,6 +152,7 @@ public class User implements Comparable<User>{
                 ", emial='" + emial + '\'' +
                 ", age=" + age +
                 ", isAdult=" + isAdult +
+                ", gender=" + gender +
                 '}';
     }
 
@@ -146,12 +165,13 @@ public class User implements Comparable<User>{
                 isAdult == user.isAdult &&
                 Objects.equals(firstName, user.firstName) &&
                 Objects.equals(lastName, user.lastName) &&
-                Objects.equals(emial, user.emial);
+                Objects.equals(emial, user.emial) &&
+                Objects.equals(gender, user.gender);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, emial, age, isAdult);
+        return Objects.hash(firstName, lastName, emial, age, isAdult, gender);
     }
 
     @Override
